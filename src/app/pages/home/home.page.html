@@ -1,0 +1,35 @@
+
+<ion-header page-home-header class="page-home-header">
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Home</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="showPopover($event)"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content page-home-content class="page-home-content padding" scroll="false" fullscreen>
+	<swiper-container pager="false" navigation="false" pagination="false">
+		<swiper-slide *ngFor="let item of slideItems; last as isLast">
+			<ion-toolbar>
+				<ion-buttons slot="end" *ngIf="!isLast">
+					<ion-button color="primary" [routerDirection]="'root'" [routerLink]="['/about-us']" >Skip</ion-button>
+				</ion-buttons>
+				<ion-buttons *ngIf="isLast">
+				</ion-buttons>
+			</ion-toolbar>
+			<img [src]="item.image" class="slide-image"/>
+			<h2 class="slide-title" [innerHTML]="item.title"></h2>
+			<p *ngIf="!isLast" [innerHTML]="item.description"></p>
+			<ion-button *ngIf="isLast" size="large" fill="clear" icon="end" color="primary" [routerDirection]="'root'" [routerLink]="['/about-us']">
+				Continue <ion-icon name="arrow-forward"></ion-icon>
+			</ion-button>
+		</swiper-slide>
+	</swiper-container>
+
+</ion-content>

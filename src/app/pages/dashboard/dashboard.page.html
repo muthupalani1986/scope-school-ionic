@@ -1,0 +1,66 @@
+
+<ion-header page-dashboard-header class="page-dashboard-header">
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Dasboard</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="showPopover($event)"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+	<ion-toolbar app-searchbar color="primary">
+		<ion-searchbar placeholder="{{ ''  }}" [(ngModel)]="filterQuery" (ionInput)="filterItems($event)" ></ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content page-dashboard-content class="page-dashboard-content " >
+	
+	<ion-refresher (ionRefresh)="doRefresh($event)" slot="fixed">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	
+	<ion-list *ngIf="filterDataDashboard.length == 0">
+		<ion-item>No item!</ion-item>
+	</ion-list>
+
+   <div class="shell">
+  <div class="container">
+    <div class="row">
+      
+	<ion-list lines="none" inset="false">
+      
+      <ion-item class="ion-no-padding" style="padding:0px !important;" *ngFor="let item of filterDataDashboard" button [routerDirection]="'forward'" [routerLink]="['/','dashboard-detail',item.id]" class="custom-item"  >   
+     
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img *ngIf="item && item.image" [src]="item.image" class="img-responsive" /> </div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>{{ item.title }}</span>
+            </div>      
+          </div>
+        </div>
+      </div>
+
+		</ion-item>
+	</ion-list>
+	
+   </div>
+     </div>
+</div>
+    
+    
+    
+	<ion-infinite-scroll threshold="100px" id="infinite-scroll" (ionInfinite)="loadMore($event)">
+		<ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data..."></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+
+
+
+
+
+</ion-content>
