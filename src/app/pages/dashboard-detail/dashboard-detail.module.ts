@@ -31,6 +31,7 @@ import { DashboardDetailPage } from "./dashboard-detail.page";
 
 /** i18n **/
 import localeEnGb from "@angular/common/locales/en-GB";
+import { ChatWindowComponent } from "src/app/components/chat-window/chat-window.component";
 registerLocaleData(localeEnGb, "en-GB");
 
 
@@ -48,7 +49,7 @@ registerLocaleData(localeEnGb, "en-GB");
 		IonicStorageModule.forRoot({ name : "FirstApp"  }),
 		DashboardDetailPageRoutingModule
 	],
-	declarations: [DashboardDetailPage],
+	declarations: [DashboardDetailPage,ChatWindowComponent],
 	exports: [],
 	providers: [
 	{ provide: LOCALE_ID, useValue: "en-GB" },

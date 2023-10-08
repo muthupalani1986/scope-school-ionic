@@ -1,0 +1,149 @@
+@use 'three-dots';
+
+:host {
+  font-size: 16px;
+  line-height: 22px
+}
+
+#chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#message-container {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+  background-color:#efeae2;  
+}
+
+.input-container {
+  display: flex;
+  padding: 10px 10px 2px 10px; 
+  column-gap: 5px;
+  align-items: flex-end;
+}
+
+#text-area-container {
+  flex: 1;
+  position: relative;
+  top:-3px;
+}
+
+#message {
+  resize: none;
+  border-radius: 50px;
+  padding: 8px 24px 5px 28px;
+  width: 100%;
+  height: 43px;
+}
+
+.emoji-smile-button {
+  position: absolute;
+  bottom: 11px;
+  left: 11px;
+  cursor: pointer;
+}
+
+.emoji-buttons-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  column-gap: 5px;
+  padding: 0 10px 10px 10px;
+}
+
+.emoji-buttons-container button,
+.emoji-button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 5px 0px;
+}
+
+.bi-emoji-smile {
+  cursor: pointer;
+}
+
+.mic-button {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  bottom: 16px;
+  right: 6px;
+}
+
+.button-icon {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  position: relative;
+  bottom: 10px;
+}
+
+.bot-msg-container {
+  column-gap: 10px;
+  background-color:#ffffff;
+  margin-bottom:10px;
+  border-radius:8px;
+  .message-container {
+    flex: 1;
+    min-height: 60px;
+  }
+
+  .animal-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+  }
+}
+
+.user-msg-container {
+  justify-content: flex-end;
+}
+
+.user-msg-box {
+  background-color: #d9fdd3;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.bot-msg-container,
+.user-msg-container {
+  display: flex;
+  padding: 10px;
+}
+
+.bot-right-icon-container {
+  display: flex;
+  align-items: flex-end;
+
+  .icons {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+}
+
+#loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-btn {
+  border-radius: 50%;
+  background-color: #00a884;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+
+}
